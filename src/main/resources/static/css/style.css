@@ -1,0 +1,180 @@
+html {
+    height: 100%;
+    min-width: 400px;
+}
+
+html body {
+    height: 95%;
+    margin: 0 auto 20px auto;
+
+    overflow-x: hidden;
+    overflow-y: fragments;
+}
+
+body {
+    line-height: 24px;
+    font: 14px MicrosoftYaHei;
+    overflow: hidden;
+}
+
+footer {
+    background-color: #4483db;
+    color: #ffffff;
+    font: 16px MicrosoftYaHei;
+    text-align: center;
+    height: 5em;
+    box-shadow: inset 0 10px 10px rgba(40, 96, 144, 0.5);
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+
+.blank1 {
+    padding-left: 1em
+}
+
+.user-login {
+    margin: 0;
+    position: relative;
+    padding: 0 0 5em 0;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    box-sizing: border-box;
+}
+
+#user-login {
+    display: block !important;
+}
+
+#user-login img {
+    width: 100%;
+    height: 100%;
+}
+
+.user-login-main {
+    width: 375px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    position: absolute;
+    z-index: 2;
+    right: 15%;
+    top: 33%
+}
+
+.check {
+    float: left;
+    color: #797b85;
+}
+
+.check input {
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.navbar {
+    margin-bottom: 30px;
+}
+
+.navbar-default {
+    background-color: #393D49;
+    border: none;
+    border-radius: 0;
+    height: 59px;
+}
+
+.navbar-default .navbar-brand {
+    text-align: center;
+    font: 24px "MicrosoftYahei";
+    color: #FFFFFF;
+}
+
+.navbar-header .logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    float: left;
+}
+
+.form-control {
+    height: auto;
+}
+
+.panel-body {
+    padding: 0.3em 1em;
+}
+.panel-body .btn-sm {
+    margin-bottom: 0.5em;
+}
+
+canvas {
+    width: 100%;
+    height: 100%;
+}
+
+.content {
+    height: calc(100vh - 86px - 7em);
+    overflow-y: scroll;
+    background-color: #e1e9eb;
+}
+
+table {
+    background-color: #FFFFFF !important;
+}
+
+td,
+th {
+    text-align: center;
+}
+
+.light_green {
+    color: #26a564;
+    font-weight: bold;
+
+}
+
+.btn-green {
+    background-color: #009688;
+    color: #ffffff;
+    margin: 0 0.5em;
+}
+
+.btn-info, .btn-danger {
+    margin: 0 0.5em;
+}
+
+.btn-green.focus, .btn-green:focus, .btn-green:hover {
+    color: #ffffff;
+    background-color: #008577;
+    text-decoration: none;
+}
+
+.btn-green i {
+    margin-right: 0.5em;
+}
+
+.header_container {
+    position: relative;
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.modal.fade.in {
+    top: 90px;
+}
+
+.dropdown-toggle {
+    color: #008577;
+}
+
+.dropdown-toggle:focus, .dropdown-toggle:hover {
+    color: #008577 !important;
+}
+
+#user_info {
+    color: #fdc476;
+    font: 16px "MicrosoftYaHei"
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+    <title>登录</title>
+    <link rel="shortcut icon" href="../../../../../lgd-pdfRead/demo/src/main/resources/static/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../../../../../lgd-pdfRead/demo/src/main/resources/static/bootstrap/css/bootstrap.min.css">
+    <!--[if lte IE 9]>
+    <script src="../../../../../lgd-pdfRead/demo/src/main/resources/static/bootstrap/html5shiv.min.js"></script>
+    <script src="../../../../../lgd-pdfRead/demo/src/main/resources/static/bootstrap/respond.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="../../../../../lgd-pdfRead/demo/src/main/resources/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../../../lgd-pdfRead/demo/src/main/resources/static/font-awesome-4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="../../../../../lgd-pdfRead/demo/src/main/resources/static/css/style.css">
+
+    <script src="../../../../../lgd-pdfRead/demo/src/main/resources/static/jquery/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script src="../../../../../lgd-pdfRead/demo/src/main/resources/static/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../../../../../lgd-pdfRead/demo/src/main/resources/static/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="../../../../../lgd-pdfRead/demo/src/main/resources/static/jquery-validation/js/localization/messages_zh.js" type="text/javascript"></script>
+
+    <script src="../../../../../lgd-pdfRead/demo/src/main/resources/static/layer-v3.1.1/layer.js" type="text/javascript"></script>
+
+    <script type="text/javascript" src="../../../../../lgd-pdfRead/demo/src/main/resources/static/common.js"></script>
+    <script type="text/javascript" src="../../../../../lgd-pdfRead/demo/src/main/resources/static/login.js"></script>
+    <style type="text/css">
+        html body {
+            height: 100%;
+            line-height: 24px;
+        }
+
+        .control-label {
+            font-size: 16px;
+            font-weight: bold;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="user-login " id="user-login">
+
+    <img src="../../../../../lgd-pdfRead/demo/src/main/resources/static/img/bg1.png" style="z-index: -1">
+
+    <div class="user-login-main">
+        <form id="form_login" class="form-horizontal" role="form" method="post">
+            <div class="modal-content modal-sm">
+                <div class="modal-header">
+                    <div class="user-login-box user-login-header">
+                        <h3 style="text-align:center">用户登录</h3>
+                    </div>
+                </div>
+
+                <div class="modal-body">
+                    <div class="form-group ">
+                        <label for="username" class="col-sm-4 control-label">用户名：</label>
+                        <div class="col-sm-8">
+                            <input type="text" name="username" id="username" autocomplete="false"
+                                   placeholder="用户名" class=" form-control"/>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="password" class="col-sm-4 control-label">密<span class="blank1"></span>码：</label>
+                        <div class="col-sm-8">
+                            <input type="password" name="password" id="password" autocomplete="false"
+                                   placeholder="密码" class="form-control"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <!--<label class="check">-->
+                                <!--<input type="checkbox" id="rm_user" name="rm_user"/>记住密码-->
+                            <!--</label>-->
+
+                            <a href="#" onclick="forgetPsw()"
+                               style="float: right;color: #269789;">忘记密码？</a>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <button type="submit" class="btn btn-green" style="width: 100%" id="btn_login" value="登录">
+                                登<span class="blank1"></span>入
+                            </button>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </form>
+    </div>
+
+    <footer>
+        <div style="padding-top: 0.5em">
+            <p>Copyright@2018<span class="blank1"></span>陆军工程大学<span class="blank1"></span>教研保障中心</p>
+            <p>建议使用谷歌或火狐浏览器访问<span class="blank1"></span>|<span class="blank1"></span>联系电话<span class="blank1"></span>0501-820254
+            </p>
+        </div>
+
+    </footer>
+</div>
+
+
+</body>
+</html>
