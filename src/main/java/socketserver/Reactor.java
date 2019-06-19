@@ -37,6 +37,7 @@ public class Reactor implements Runnable {
                     it.remove();
                     Dispatcher.dispatch(tmpKey);
                 }
+                keys.clear();
             }
         } catch (IOException e) {
             e.printStackTrace();
