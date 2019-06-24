@@ -1,4 +1,4 @@
-package socketserver;
+package threadpool;
 
 import java.nio.channels.SocketChannel;
 

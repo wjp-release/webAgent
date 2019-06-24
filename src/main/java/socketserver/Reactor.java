@@ -9,12 +9,11 @@ import java.util.Iterator;
 import java.util.Set;
 
 public class Reactor implements Runnable {
-    private ServerSocketChannel serverSocket;
     private Selector serverSelector;
 
     public Reactor() {
         try {
-            serverSocket = ServerSocketChannel.open();
+            ServerSocketChannel serverSocket = ServerSocketChannel.open();
             serverSocket.configureBlocking(false);
             serverSelector = Selector.open();
             serverSocket.socket().bind(new InetSocketAddress(8000));

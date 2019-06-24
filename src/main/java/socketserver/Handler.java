@@ -1,12 +1,13 @@
 package socketserver;
 
+import socketserver.processor.Processor;
+
 import java.io.IOException;
-import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
 import java.nio.channels.SocketChannel;
-import java.util.concurrent.ThreadPoolExecutor;
+import java.util.Arrays;
 
 public class Handler implements Runnable {
     private SocketChannel channel;
@@ -43,14 +44,11 @@ public class Handler implements Runnable {
                 channel.close();
                 return;
             }
-            //根据读取内容判断是获取html静态资源还是获取
+            //根据读取内容判断请求类型
 
 
             //向8888端口转发
-
-            new Processer().forward(byteBuffer, returnBuffer);
-
-            key.interestOps(SelectionKey.OP_WRITE);
+            Processor.forward(byteBuffer, returnBuffer, key);
         } catch (IOException e) {
             try {
                 key.cancel();
@@ -64,6 +62,7 @@ public class Handler implements Runnable {
 
     private void write() {
         try {
+            System.out.println(new String(returnBuffer.array()));
             channel.write(returnBuffer);
             returnBuffer.clear();
             key.cancel();
