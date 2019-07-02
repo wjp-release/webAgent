@@ -1,6 +1,4 @@
-package threadpool;
-
-import java.nio.channels.SocketChannel;
+package socketserver.threadpool;
 
 public class ProxySocketPool {
 

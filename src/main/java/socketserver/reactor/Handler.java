@@ -1,19 +1,25 @@
-package socketserver;
+package socketserver.reactor;
 
+import socketserver.processor.ForwardProcessor;
 import socketserver.processor.Processor;
 
+import java.io.File;
 import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.nio.ByteBuffer;
+import java.nio.channels.FileChannel;
 import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
 import java.nio.channels.SocketChannel;
 import java.util.Arrays;
+import java.util.Objects;
 
 public class Handler implements Runnable {
     private SocketChannel channel;
     private SelectionKey key;
-    private ByteBuffer returnBuffer = ByteBuffer.allocate(1024 * 32);
-//    static ThreadPoolExecutor executor = new ThreadPoolExecutor(, , , , );
+    private ByteBuffer returnBuffer = ByteBuffer.allocate(1024 * 2024);
 
     Handler(SocketChannel channel, Selector selector) {
         this.channel = channel;
@@ -45,10 +51,21 @@ public class Handler implements Runnable {
                 return;
             }
             //根据读取内容判断请求类型
+            String res = new String(byteBuffer.array());
+//            System.out.println(res);
+//            URL url =  this.getClass().getClassLoader().getResource("templates/test.html");
+//
+//            File f = new File(Objects.requireNonNull(url != null ? url.toURI() : null));
+//            RandomAccessFile rf = new RandomAccessFile(f,"rw");
+//            FileChannel fc = rf.getChannel();
+//
+//            fc.transferTo(0, rf.length(), channel);
+//            System.out.println("!!!");
 
 
-            //向8888端口转发
-            Processor.forward(byteBuffer, returnBuffer, key);
+            //转发
+            new ForwardProcessor(byteBuffer, returnBuffer, key, channel).run();
+//            Processor.forward(byteBuffer, returnBuffer, key);
         } catch (IOException e) {
             try {
                 key.cancel();
@@ -58,11 +75,14 @@ public class Handler implements Runnable {
             }
             e.printStackTrace();
         }
+//        catch (URISyntaxException e) {
+//            e.printStackTrace();
+//        }
     }
 
     private void write() {
         try {
-            System.out.println(new String(returnBuffer.array()));
+//            System.out.println(new String(returnBuffer.array()));
             channel.write(returnBuffer);
             returnBuffer.clear();
             key.cancel();
