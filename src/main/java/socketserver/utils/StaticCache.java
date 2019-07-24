@@ -8,7 +8,7 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public class StaticCache {
 
-    ConcurrentHashMap<String, CacheNode> cacheMap = new ConcurrentHashMap<>();
+    private ConcurrentHashMap<String, CacheNode> cacheMap = new ConcurrentHashMap<>();
     int ttl;
     private volatile CacheNode tail;
     private volatile CacheNode head;
@@ -36,8 +36,8 @@ public class StaticCache {
     }
 
 
-    public void put(String fname, String content) {
-        CacheNode node = new CacheNode(content);
+    public void put(String fname, CacheNode node) {
+//        CacheNode node = new CacheNode(content);
         cacheMap.put(fname, node);
         lock.lock();
         //挂链表
@@ -49,13 +49,30 @@ public class StaticCache {
         lock.unlock();
     }
 
+    private void moveToHead(String fname, CacheNode cacheNode) {
+        lock.lock();
+        try {
+            cacheNode.prev.next = cacheNode.next;
+            cacheNode.next.prev = cacheNode.prev;
+            cacheNode.next = null;
+            cacheNode.prev = null;
+            //放入head;
+            head.prev = cacheNode;
+            cacheNode.next = head;
+        } finally {
+            lock.unlock();
+        }
+
+    }
+
     public String get(String fname) {
         CacheNode cacheNode = cacheMap.get(fname);
         if (cacheNode != null) {
-            //放入head;
+            moveToHead(fname, cacheNode);
+            return cacheNode.staticContext;
+        } else {
+            //获取资源
 
-           return cacheNode.staticContext;
-        }else {
 //            put(fname, );
         }
 
