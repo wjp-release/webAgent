@@ -1,17 +1,11 @@
 package socketserver.processor;
 
-import socketserver.reactor.Handler;
 
-import java.io.File;
 import java.io.IOException;
-import java.io.RandomAccessFile;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
-import java.nio.channels.FileChannel;
 import java.nio.channels.SelectionKey;
-import java.nio.channels.Selector;
 import java.nio.channels.SocketChannel;
-import java.util.ArrayList;
 
 public class ForwardProcessor implements Runnable {
 

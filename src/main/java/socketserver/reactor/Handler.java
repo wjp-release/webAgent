@@ -1,7 +1,7 @@
 package socketserver.reactor;
 
+
 import socketserver.processor.ForwardProcessor;
-import socketserver.processor.Processor;
 
 import java.io.File;
 import java.io.IOException;
@@ -61,8 +61,6 @@ public class Handler implements Runnable {
 //
 //            fc.transferTo(0, rf.length(), channel);
 //            System.out.println("!!!");
-
-
             //转发
             new ForwardProcessor(byteBuffer, returnBuffer, key, channel).run();
 //            Processor.forward(byteBuffer, returnBuffer, key);
